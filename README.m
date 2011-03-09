@@ -8,9 +8,11 @@
 %  the MATLAB command prompt just type 'help ' followed by the name on any
 %  dataCzar command.  Ex: 'help listBranches'
 %
-%  These instructions assume that you've already downloaded dataCzar,
-%  run the installDataCzar script, and created a repository with
-%  startRepository().  
+%% Getting Started
+%------------------
+%
+%  (1) Follow the steps in installDataCzar.m to setup the package.
+%  (2) Follow the steps in startRepository.m to start a repository.
 %
 %
 %% Code Version Control In 10 Easy Steps
