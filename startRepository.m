@@ -50,47 +50,40 @@ function startRepository()
 
 %% Settings - Modify these please!
  
+
     existingRepository = true;   % Set this to true if you're cloning a
-                                 % repository that already exists
+                                 % repository that already exists   
+                                 
+    yourRepository = 'ePhys';    % Your repository
+   
 
-    gitSettings.yourName  = 'Joe Bell';
-    gitSettings.yourEmail = 'joe.bell@gmail.com';
-    gitSettings.repoOwner = 'joebell';                % A GitHub username
-    gitSettings.yourRepository = 'ePhys';     % Your repository
-    
-% Sample directory settings for a PC
-%    gitSettings.workingDir = 'C:\Documents and Settings\Joe Bell\Desktop\';
-%    gitSettings.simpleGitDir = 'C:\Documents and Settings\Joe Bell\Desktop\simpleGit\';
-
-% Sample directory settings for a Mac
-    gitSettings.workingDir = '~/Desktop/';
-    gitSettings.simpleGitDir = '~/Desktop/simpleGit/';
-
-
-    gitSettings.repoDir = [gitSettings.workingDir,...
-				gitSettings.yourRepository,'/'];
     
 %% The script.  You probably shouldn't modify this unless you're awesome. 
 
+    dcSettings = dataCzarSettings();
+    dcSettings.yourRepository = yourRepository;   
+    dcSettings.repoDir = [gitSettings.workingDir,...
+				gitSettings.yourRepository,'/'];
+
     % Set global git settings
-    system(['git config --global user.name "',gitSettings.yourName,'"']);
-    system(['git config --global user.email ',gitSettings.yourEmail]);    
+    system(['git config --global user.name "',dcSettings.yourName,'"']);
+    system(['git config --global user.email ',dcSettings.yourEmail]);    
            
     % Go to working directory
-    cd(gitSettings.workingDir);
+    cd(dcSettings.workingDir);
     
     % If there's already a repo, just clone it
     if (existingRepository)
         disp('Cloning an existing distribution...');
         system(['git clone git@github.com:',...
-            gitSettings.repoOwner,'/',...
-            gitSettings.yourRepository,'.git']);
+            dcSettings.repoOwner,'/',...
+            dcSettings.yourRepository,'.git']);
         
     % Otherwise construct a new one
     else
         % Make a directory and initialize
-        mkdir(gitSettings.yourRepository);
-        cd(gitSettings.yourRepository);
+        mkdir(dcSettings.yourRepository);
+        cd(dcSettings.yourRepository);
         system('git init');
 
         % Add a README file
@@ -102,13 +95,13 @@ function startRepository()
         % Commit to the server
         system(['git commit -m "first commit"']);
         system(['git remote add origin git@github.com:',...
-            gitSettings.repoOwner,'/',gitSettings.yourRepository,...
+            dcSettings.repoOwner,'/',dcSettings.yourRepository,...
             '.git']);
         system(['git push origin master']);
     end
     
-    % Save git settings 
-    save([gitSettings.simpleGitDir,'.gitSettings.mat'],'gitSettings');
+    % Save settings 
+    save([dcSettings.dataCzarDir,'.dataCzarSettings.mat'],'dcSettings');
    
     % Update the MATLAB path to contain newly created directories
     updatePath();
@@ -120,8 +113,8 @@ function startRepository()
     end
     
     % Display a completion message and leave us in workingDir.
-    disp(['-- Set-up repository ',gitSettings.yourRepository, ...
-        ' in folder ',gitSettings.workingDir,gitSettings.yourRepository,...
+    disp(['-- Set-up repository ',dcSettings.yourRepository, ...
+        ' in folder ',dcSettings.workingDir,dcSettings.yourRepository,...
         ' --']);   
-    cd(gitSettings.workingDir);
+    cd(dcSettings.workingDir);
 

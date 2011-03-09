@@ -4,7 +4,7 @@ function repoName = getRepository()
 
 
     % Get the repository settings
-    params = simpleGitSettings();
+    params = dataCzarSettings();
        
     repoName = params.yourRepository;
  

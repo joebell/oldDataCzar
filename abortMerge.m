@@ -5,7 +5,7 @@
 function abortMerge()
 
     % Get the repository settings
-    params = simpleGitSettings();
+    params = dataCzarSettings();
 
     % Git needs to run from the working directory
     oldDir = cd(params.repoDir);

@@ -3,7 +3,7 @@
 function updatePath()
 
     % Get the repository settings
-    params = simpleGitSettings();
+    params = dataCzarSettings();
     
     addpath(genpath([params.repoDir]));
     savepath;

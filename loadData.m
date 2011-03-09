@@ -7,10 +7,10 @@
 function loadData(input)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
  
     % Load the index
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
     
     % Returns the list of files
     list = returnFileList(input);
@@ -18,7 +18,7 @@ function loadData(input)
     % Load either a file number in the index or a filename
     for fileNum=list
         file = dmIndex.files(fileNum); 
-        fullPath = [dmSettings.dataDir, file.name];
+        fullPath = [dcSettings.dataDir, file.name];
         if ~file.deleted            
             disp(['Loading: ',fullPath]);
         else

@@ -9,10 +9,10 @@
 function makeLocalBackup(varargin)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
     
     % Load index
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
 
     % Returns the list of files
     if nargin > 0
@@ -22,7 +22,7 @@ function makeLocalBackup(varargin)
     end
     
     %% Make a directory if necessary
-    backupPath = [dmSettings.dataDir,'Local-Backup/'];
+    backupPath = [dcSettings.dataDir,'Local-Backup/'];
     if ~isdir(backupPath)
         mkdir(backupPath);
     end
@@ -40,17 +40,17 @@ function makeLocalBackup(varargin)
     for fileNum=list
         file = dmIndex.files(fileNum);
         if (~file.deleted && file.needsLocalBackup)
-            filesToBackup{end+1} = [dmSettings.dataDir,file.name];
+            filesToBackup{end+1} = [dcSettings.dataDir,file.name];
             dmIndex.files(fileNum).needsLocalBackup = false;
             dmIndex.files(fileNum).localBackup = backupFileName;
         end
     end
 
     % Save the updated index reflecting the local backup
-    save([dmSettings.dataManagerDir, '.dmIndex.mat'], 'dmIndex');
+    save([dcSettings.dataCzarDir, '.dmIndex.mat'], 'dmIndex');
     
     % Add the index file itself!
-    filesToBackup{end+1} = [dmSettings.dataManagerDir, '.dmIndex.mat'];
+    filesToBackup{end+1} = [dcSettings.dataCzarDir, '.dmIndex.mat'];
     
     % Actually write a zip file
     zip(backupFileName, filesToBackup);

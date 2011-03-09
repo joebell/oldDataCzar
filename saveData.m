@@ -15,11 +15,11 @@
 function saveData(fileName,varargin)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
     
     %% Make a directory if necessary
 
-    fullPath = [dmSettings.dataDir,fileName];
+    fullPath = [dcSettings.dataDir,fileName];
     % Get just the directory
     directory = regexprep(fullPath,'[A-Za-z0-9_-]*.mat','');
     if ~isdir(directory)
@@ -28,26 +28,22 @@ function saveData(fileName,varargin)
     end
     
     %% Load the index file    
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
     
     %% Store the name of the file and other params in the master list
     
     % Removed passing of experiment name.
     file.experiment = '';
     % Add the rest of the file info
-    if (true)
-        file.name = fileName;
-        file.time = datevec(now);
-        file.needsLocalBackup = true;
-        file.localBackup = '';
-        file.needsRemoteBackup = true;
-        file.remoteBackup = '';
-        file.deleted = false;
-    end
-    % If simpleGit is installed...
-    if (exist('getCodeVersion')==2)
-        file.code = getCodeVersion();
-    end
+    file.name = fileName;
+    file.time = datevec(now);
+    file.needsLocalBackup = true;
+    file.localBackup = '';
+    file.needsRemoteBackup = true;
+    file.remoteBackup = '';
+    file.deleted = false;
+    file.code = getCodeVersion();
+
 
     % If this is new, create a list of files
     overWrite = true;
@@ -101,6 +97,6 @@ function saveData(fileName,varargin)
             ' and queued to be backed-up.']);
         % Store it back in dmIndex
         dmIndex.files = fileList;
-        save([dmSettings.dataManagerDir,'.dmIndex.mat'],'dmIndex');
+        save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
     end
 

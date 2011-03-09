@@ -7,10 +7,10 @@
 function listOfNumbers = findExperiment(experimentName)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
     
     % Load index
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
     
     % Find the files that need to be backed up
     listOfNumbers = [];

@@ -12,10 +12,10 @@
 function listDMIndex(varargin)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
 
     % Load index    
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
 
     % Returns the list of files
     if nargin > 0

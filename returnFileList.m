@@ -18,10 +18,10 @@ function list = returnFileList(varargin)
         end
     else        
         % Load settings
-        dmSettings = dataManagerSettings();
+        dcSettings = dataCzarSettings();
 
         % Load the index
-        load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+        load([dcSettings.dataCzarDir,'.dmIndex.mat']);
         
         % Protect against empties
         if ~isfield(dmIndex,'files')

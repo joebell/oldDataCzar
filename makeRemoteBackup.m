@@ -9,10 +9,10 @@
 function makeRemoteBackup(varargin)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
     
     % Load index
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
     
     % Returns the list of files
     if nargin > 0
@@ -22,7 +22,7 @@ function makeRemoteBackup(varargin)
     end
     
     %% Make a temp directory if necessary
-    backupPath = [dmSettings.dataDir,'temp/'];
+    backupPath = [dcSettings.dataDir,'temp/'];
     if ~isdir(backupPath)
         mkdir(backupPath);
     end
@@ -40,27 +40,27 @@ function makeRemoteBackup(varargin)
     for fileNum=list
         file = dmIndex.files(fileNum);
         if (~file.deleted && file.needsRemoteBackup)
-            filesToBackup{end+1} = [dmSettings.dataDir,file.name];
+            filesToBackup{end+1} = [dcSettings.dataDir,file.name];
         end
     end
     
     % Add the index file itself!
-    filesToBackup{end+1} = [dmSettings.dataManagerDir, '.dmIndex.mat'];
+    filesToBackup{end+1} = [dcSettings.dataCzarDir, '.dmIndex.mat'];
     
     % Actually write a zip file
     zip(backupFileName, filesToBackup);
 
     % Copy it to the server
-    if (dmSettings.smbBackup)
+    if (dcSettings.smbBackup)
         try
-            copyfile(backupFileName,[dmSettings.smbDir,backupFileName]);
+            copyfile(backupFileName,[dcSettings.smbDir,backupFileName]);
             disp(['Backed up to server as: ',backupFileName]);
             for fileNum=list
                 dmIndex.files(fileNum).needsRemoteBackup = false;
                 dmIndex.files(fileNum).remoteBackup = backupFileName;
             end
             % Save the updated index reflecting the local backup
-            save([dmSettings.dataManagerDir, '.dmIndex.mat'], 'dmIndex');
+            save([dcSettings.dataCzarDir, '.dmIndex.mat'], 'dmIndex');
         catch exception
             disp('Backup to server failed.  Are you sure you''re connected?');
         end

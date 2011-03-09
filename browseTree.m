@@ -7,7 +7,7 @@
 function browseTree()
 
     % Get the repository settings
-    params = simpleGitSettings();
+    params = dataCzarSettings();
     
     web(['https://github.com/',params.repoOwner,'/',...
         params.yourRepository,'/network'], '-browser');

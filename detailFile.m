@@ -7,10 +7,10 @@
 function detailFile(input)
 
     % Load settings
-    dmSettings = dataManagerSettings();
+    dcSettings = dataCzarSettings();
  
     % Load the index
-    load([dmSettings.dataManagerDir,'.dmIndex.mat']);
+    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
     
     % Returns the list of files
     list = returnFileList(input);
@@ -34,4 +34,4 @@ function detailFile(input)
     end
     
     % Re-save the index to disk    
-    save([dmSettings.dataManagerDir,'.dmIndex.mat'],'dmIndex');
+    save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
