@@ -1,4 +1,4 @@
-%% installDataCzar.m
+%% installDataCzar.m 
 %
 %  This script "installs" the dataCzar package.  Edit the settings to
 %  reflect your usage, then run the script.  It will create a hidden file
