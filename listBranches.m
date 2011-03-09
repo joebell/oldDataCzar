@@ -1,5 +1,9 @@
 %% listBranches.m
 %
+% Use this to list all the branches in your current repository.  The branch
+% of code you're currently on is marked with an asterisk.
+%
+% JSB 3/2011
 function listBranches()
 
     % Get the repository settings

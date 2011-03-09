@@ -1,5 +1,13 @@
-%% cloneRemoteBranches
+%% cloneRemoteBranches.m
 %
+%  Use this if the server has some code that wasn't written on your
+%  computer.  This only really occurs when you're writing code on two
+%  different machines, or collaborating with someone.
+%
+%  It will clone all the remote branches that are displayed by
+%  listBranches();
+%
+% JSB 3/2011
 function cloneRemoteBranches()
 
     disp('Cloning any untracked remote branches...');

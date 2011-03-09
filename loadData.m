@@ -1,9 +1,12 @@
 %% loadData.m
 %  
-%  Loads a file either by its index number or its name.
+%  Loads data from a file or files. It can take multiple types of inputs:
 %
-%  JSB 12/2010
+%       loadData(3);                 % The index number of a file
+%       loadData(1,2,5:7);           % A bunch of index numbers
+%       loadData('ExperimentName');
 %
+% JSB 3/2011 
 function loadData(input)
 
     % Load settings

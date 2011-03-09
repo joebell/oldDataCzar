@@ -1,5 +1,13 @@
-%% updateToServer() 
+%% updateToServer.m
 %
+% This updates the server with any changes you've made to the branch of
+% code you're working on.  It does NOT update any hidden files (filenames 
+% starting with a period).  This requires a message used to identify the
+% update.
+%
+% Ex: updateToServer('Added histogram generation code to data display.');
+%
+% JSB 3/2011
 function updateToServer(message)
 
     % Get the repository settings

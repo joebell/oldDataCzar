@@ -1,9 +1,13 @@
 %% detailFile.m
 %
-%  Returns detail for a file, list of files, or an experiment name.
+%  Returns details of files listed in the dataCzar data index.  It can 
+%  take multiple types of inputs:
 %
-%  JSB 12/2010
+%       detailFile(3);                 % The index number of a file
+%       detailFile(1,2,5:7);           % A bunch of index numbers
+%       detailFile('ExperimentName');
 %
+% JSB 3/2011 
 function detailFile(input)
 
     % Load settings

@@ -1,12 +1,13 @@
 %% returnFileList.m
 %
+% Helper function.
+%
 % Generates a list of files to look through. For inputs:
 % 	[none]	Returns all the files in the index
 % 	[#'s]	Returns the same numbers
 % 	[text]  Returns files matching this experiment name
 %
 % JSB 12/2010
-%
 function list = returnFileList(varargin)
 
     % Generate the list of files to look through

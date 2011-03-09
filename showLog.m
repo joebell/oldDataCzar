@@ -1,5 +1,9 @@
 %% showLog.m
 %
+% Displays a log of dataCzar's recent dealings with the server, but only on
+% the repository and branch you're working with.
+%
+% JSB 3/2011
 function showLog()
 
     % Get the repository settings

@@ -1,8 +1,12 @@
 %% getCodeVersion.m
 %
-%  Now will force an auto-update if the backup isn't current
+% Forces an automatic update of the code, then returns a data structure
+% that uniquely identifies the current version of the code.  Make sure
+% dataCzar is pointed at the correct repository before you use this, so
+% you're getting the current version of the right code.  (getRepository();
+% or changeRepository('myRepository');)
 %
-% JSB 1/2011
+% JSB 3/2011
 function code = getCodeVersion()
 
 

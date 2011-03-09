@@ -1,17 +1,16 @@
 %% saveData.m
 %
 %  Use this as a replacement for MATLAB's save() command.  This saves 
-%  your data to disk, but also make sure that you're not overwriting
-%  a previously indexed file with the same name.  It also saves metadata
-%  like the time you're saving, the current version of the code tracked
-%  by simpleGit, and whether the file has been backed up.
+%  your data to disk, but it also saves metadata like the time you're 
+%  saving, the current version of the code tracked by dataCzar, and whether 
+%  the file has been backed up.
 %
-%  Commented out overwrite detection.
+%  Just like save(), this will overwrite an existing file on disk without 
+%  prompting you.
 %
-%  Use it as:  saveData('fileName', 'data') 
+%  Ex:  saveData('fileName', 'variableName1', 'variableName2', ...) 
 %
-%  JSB 12/2010
-%
+%  JSB 3/2011
 function saveData(fileName,varargin)
 
     % Load settings

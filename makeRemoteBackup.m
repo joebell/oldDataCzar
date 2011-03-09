@@ -1,11 +1,14 @@
 %% makeRemoteBackup.m
 %
-%  Backs up in-range files that need it to a zip-file on the remote 
-%  server.  Can take no arguments to back-up the whole index, or a list
-%  of file numbers, or an experiment name.
+%  Backs up any in-range file that hasn't been previously backed up to a 
+%  zip file on the server.  It can take multiple types of inputs:
 %
-%  JSB 12/2010
+%       makeRemoteBackup();                  % All files!
+%       makeRemoteBackup(3);                 % The index number of a file
+%       makeRemoteBackup(1,2,5:7);           % A bunch of index numbers
+%       makeRemoteBackup('ExperimentName');
 %
+% JSB 3/2011 
 function makeRemoteBackup(varargin)
 
     % Load settings

@@ -1,5 +1,11 @@
 %% makeBranch.m
 %
+% Creates a new branch of code.  Use this if you want to try out some new
+% code but still be able to revert quickly back to your 'master' branch.
+%
+% Ex: makeBranch('MyNewBranch');
+%
+% JSB 3/2011
 function makeBranch(name)
 
     % Get the repository settings

@@ -1,5 +1,13 @@
 %% deleteFile.m
 %
+% Removes files from the dataCzar data index.  It does NOT delete them from
+% disk.  (That's up to you.)  It can take multiple types of inputs:
+%
+%       deleteFile(3);                 % The index number of a file
+%       deleteFile(1,2,5:7);           % A bunch of index numbers
+%       deleteFile('ExperimentName');
+%
+% JSB 3/2011
 function deleteFile(inputf)
 
     % Load settings

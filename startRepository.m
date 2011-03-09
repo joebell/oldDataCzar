@@ -1,50 +1,47 @@
 %% startRepository.m
 %
-% You'll do steps 1-5 the first time you create a repository.
-% Then you can just do steps 6-8 for each additional respository.
+% Use this to add a new repository for dataCzar.  It can either be a new
+% empty repository, or an existing one that's already stored on the server.
+%
+% You'll do steps 1-4 the first time you create a repository.
+% Then you can just do steps 5-8 for each additional respository.
 %
 % (1) Download git from http://www.git-scm.com/ and install. Then reboot.
 %     Make sure that git gets added to the system path.
+%
 % (2) Setup an account at http://www.github.com  This is the website that
 %     hosts our code.
+%
 % (3) Associate public keys of your computer with your github account.
 %     These are used to authenticate your identity.  You'll need to do 
 %     this for each computer you use.  Instructions: 
 %            http://help.github.com/msysgit-key-setup/   (for Windows)
 %            http://help.github.com/mac-key-setup/       (for Mac OS X)
 %     Do not create a passphrase.  (Just hit enter to leave a blank one.)
-% (4) If you don't have simpleGit already, download it from: 
-%     https://github.com/joebell/simpleGit   and install it by running the
-%     installSimpleGit.m script.  (Make sure you edit the settings at the
+%
+% (4) If you don't have dataCzar already, download it from: 
+%     https://github.com/joebell/dataCzar   and install it by running the
+%     installDataCzar.m script.  (Make sure you edit the settings at the
 %     top to supply appropriate directories for your machine.) 
-% (5) See the startRepository.m script in simpleGit for detailed 
-%     instructions on how to create a new repository or a clone of an
-%     existing one.
-% 
-%  nb:
-%     If you're trying to clone simpleGit, first install it into a temp
-%     directory, then use this script to clone it.  Then delete the temp
-%     directory and run installSimpleGit.m in the cloned copy to install.
 %
 %
-% (6) If you're cloning someone else's code to collaborate with them,
+%
+%
+% (5) If you're cloning someone else's code to collaborate with them,
 %     contact them to give you permission to access it.  Otherwise create 
-%     a new repository of your own on GitHub.  (http://www.github.com)
+%     a new repository of your own on GitHub.  (http://www.github.com) All
+%     you'll have to enter is a project name (like 'dataCzar') and click
+%     'Create Repository'.  You don't need to follow any of the git
+%     initialization instructions.
 %
-% (7) If you're setting up your own repository:
-%   (7.1) Change the directory settings below to match your system.
-%   (7.2) Make sure: existingRepository = false
-%                    repoOwner = 'yourGitHubUserName' 
-%                    yourRepository = 'yourRepositoryName'
-%   (7.3) Run this script to install yourRepository.
-% 
-% (8) If you're importing someone's existing code:
-%   (8.1) Change the directory settings below to match your system.
-%   (8.2) Make sure: existingRepository = true
-%                    repoOwner = 'ownersGitHubUserName' 
-%                    yourRepository = 'theirRepositoryName'
-%   (8.3) Run this script to install theirRepository.
+% (6) If you're setting up your own repository then in the settings below 
+%     make sure: existingRepository = false.  If there's already a
+%     repository on the server with code you want to get then:
+%     existingRepository = true;
 %
+% (7) Set: yourRepository = 'yourProjectName';
+%
+% (8) Run this script.
 %
 function startRepository()
 

@@ -1,10 +1,15 @@
 %% makeLocalArchive.m
 %
-%  Backs up in-range files whether they need it or not.  Use this to 
-%  compile an archive of a whole experiment.
+%  Backs up files whether they need it or not.  Use this to compile an
+%  archive of an experiment that may have been incrementally backed up to
+%  several different files over time.  It can take multiple types of inputs:
 %
-%  JSB 12/2010
+%       makeLocalArchive();                  % All files!
+%       makeLocalArchive(3);                 % The index number of a file
+%       makeLocalArchive(1,2,5:7);           % A bunch of index numbers
+%       makeLocalArchive('ExperimentName');
 %
+% JSB 3/2011 
 function makeLocalArchive(varargin)
 
     % Load settings

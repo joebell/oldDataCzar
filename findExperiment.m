@@ -1,9 +1,10 @@
 %% findExperiment.m
 %
-%  Returns a list of files with matching experiment name.
+%  Returns a list of files matching an experiment name.
 %
-%  JSB 12/2010
+%  Ex: findExperiment('Or22a in Or83b2');
 %
+% JSB 12/2010
 function listOfNumbers = findExperiment(experimentName)
 
     % Load settings

@@ -3,6 +3,8 @@
 %  This script "installs" the dataCzar package.  Edit the settings to
 %  reflect your usage, then run the script.  It will create a hidden file
 %  that dataCzar uses, and adds the dataCzar directory to your MATLAB path.
+%  
+%  Take particular care to use the correct directories for a Mac or PC.
 %
 %  JSB 3/2011
 function installDataCzar()

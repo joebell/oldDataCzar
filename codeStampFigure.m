@@ -1,6 +1,11 @@
 %% codeStampFigure.m
 %
-%  Prints a uniquely identifying code onto a figure window
+%  Prints a uniquely identifying code onto a figure window that allows you
+%  to get back to the code version that generated it.  It will also print
+%  the date generated, the active repository, and the names of the
+%  functions that were called to generate the plot.
+%
+%  Ex: codeStampFigure(gcf);
 %
 % JSB 2/2011
 function codeStampFigure(aFigure)

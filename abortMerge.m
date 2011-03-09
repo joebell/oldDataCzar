@@ -2,6 +2,7 @@
 %
 %  This command aborts any merge in progress. Use this if you get stuck. 
 %
+% JSB 3/2011
 function abortMerge()
 
     % Get the repository settings

@@ -1,5 +1,8 @@
 %% getBranchList()
 %
+% Internal helper function.  Gets the list of current branches.
+%
+% JSB 3/2011
 function branch = getBranchList()
 
     % Get the repository settings

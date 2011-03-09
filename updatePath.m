@@ -1,5 +1,8 @@
 %% updatePath.m
 %
+% Helper function to make sure MATLAB knows where your code is being kept.
+%
+% JSB 3/2011
 function updatePath()
 
     % Get the repository settings

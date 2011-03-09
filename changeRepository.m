@@ -1,4 +1,4 @@
-%% changeRepository
+%% changeRepository.m
 %
 %  Asks dataCzar to use a different repository on your system.
 %

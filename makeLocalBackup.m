@@ -1,11 +1,14 @@
 %% makeLocalBackup.m
 %
-%  Backs up any in-range file that needs it to a zip file on disk.  
-%  Can take no arguments (backs up whole index), or a list of files, or an
-%  experiment name.
+%  Backs up any in-range file that hasn't been previously backed up to a 
+%  zip file on disk.  It can take multiple types of inputs:
 %
-%  JSB 12/2010
+%       makeLocalBackup();                  % All files!
+%       makeLocalBackup(3);                 % The index number of a file
+%       makeLocalBackup(1,2,5:7);           % A bunch of index numbers
+%       makeLocalBackup('ExperimentName');
 %
+% JSB 3/2011 
 function makeLocalBackup(varargin)
 
     % Load settings
