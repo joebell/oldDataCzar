@@ -25,7 +25,7 @@ function list = returnFileList(varargin)
         
         % Protect against empties
         if ~isfield(dmIndex,'files')
-            disp('-- Empty dataManager Index --');
+            disp('-- Empty dataCzar Index --');
             list = [];
             return;
         end

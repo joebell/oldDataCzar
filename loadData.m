@@ -30,7 +30,7 @@ function loadData(input)
         % Assign all variables in the parent workspace
         dataFields = fieldnames(newData);
         for field = 1:size(dataFields,1)
-            assignin('caller',dataFields{field},getField(newData,dataFields{field}));
+            assignin('caller',dataFields{field},getfield(newData,dataFields{field}));
         end      
     end
     

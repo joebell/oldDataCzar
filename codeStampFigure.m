@@ -17,7 +17,12 @@ function codeStampFigure(aFigure)
     for i=1:(size(version.filesCalled,2)-1)
         fileList = [fileList,version.filesCalled{i},' << '];
     end
-    fileList = [fileList,'\bf',version.filesCalled{end},'\rm'];
+
+    if size(version.filesCalled,2) > 0
+        fileList = [fileList,'\bf',version.filesCalled{end},'\rm'];
+    else
+        fileList = [fileList,'\bf','Run from command line','\rm'];
+    end
 
     versionString(1) = {fileList};
     versionString(2) = {['  generated: ',datestr(now)]};

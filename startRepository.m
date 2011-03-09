@@ -62,8 +62,8 @@ function startRepository()
 
     dcSettings = dataCzarSettings();
     dcSettings.yourRepository = yourRepository;   
-    dcSettings.repoDir = [gitSettings.workingDir,...
-				gitSettings.yourRepository,'/'];
+    dcSettings.repoDir = [dcSettings.workingDir,...
+				dcSettings.yourRepository,'/'];
 
     % Set global git settings
     system(['git config --global user.name "',dcSettings.yourName,'"']);

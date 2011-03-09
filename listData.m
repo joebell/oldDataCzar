@@ -1,4 +1,4 @@
-%% listDMIndex.m
+%% listData.m
 %
 %  Lists files.  If passed no arguments it lists all files in the index.
 %  It can also be passed a list of numbers or an experiment name.
@@ -9,7 +9,7 @@
 %
 %  JSB 12/2010
 %
-function listDMIndex(varargin)
+function listData(varargin)
 
     % Load settings
     dcSettings = dataCzarSettings();
@@ -25,7 +25,7 @@ function listDMIndex(varargin)
     end
 
     disp(' ');
-    disp('-- dataManager File Index --');
+    disp('-- dataCzar File Index --');
     for fileNum=1:size(list,2)
         file = dmIndex.files(list(fileNum));
         if (file.needsLocalBackup)

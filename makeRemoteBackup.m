@@ -33,7 +33,7 @@ function makeRemoteBackup(varargin)
     % Create a backup file name that includes the current time 
     timeString = regexprep(datestr(now),' ','-');
     timeString = regexprep(timeString,':','');
-    backupFileName = ['DMBK-Remote-',timeString,'.zip'];
+    backupFileName = ['DCBK-Remote-',timeString,'.zip'];
 
     % Find the files that need to be backed up
     filesToBackup = {};

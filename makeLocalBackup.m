@@ -33,7 +33,7 @@ function makeLocalBackup(varargin)
     % Create a backup file name that includes the current time 
     timeString = regexprep(datestr(now),' ','-');
     timeString = regexprep(timeString,':','');
-    backupFileName = ['DMBK-',timeString,'.zip'];
+    backupFileName = ['DCBK-',timeString,'.zip'];
 
     % Find the files that need to be backed up
     filesToBackup = {};
