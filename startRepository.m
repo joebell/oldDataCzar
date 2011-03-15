@@ -51,7 +51,7 @@ function startRepository()
     existingRepository = true;   % Set this to true if you're cloning a
                                  % repository that already exists   
                                  
-    yourRepository = 'ePhys';    % Your repository
+    yourRepository = 'arduinoMATLAB';    % Your repository
    
 
     
