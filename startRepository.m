@@ -2,6 +2,9 @@
 %
 % Use this to add a new repository for dataCzar.  It can either be a new
 % empty repository, or an existing one that's already stored on the server.
+% 
+% If you're starting your own repository, it will create an empty
+% directory that you can copy any existing code you have into.
 %
 % You'll do steps 1-4 the first time you create a repository.
 % Then you can just do steps 5-8 for each additional respository.
