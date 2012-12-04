@@ -15,11 +15,8 @@
 % JSB 3/2011 
 function listData(varargin)
 
-    % Load settings
-    dcSettings = dataCzarSettings();
-
-    % Load index    
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    % Load the index
+    dmIndex = loadDmIndex();
 
     % Returns the list of files
     if nargin > 0

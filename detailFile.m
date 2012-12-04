@@ -10,11 +10,8 @@
 % JSB 3/2011 
 function detailFile(input)
 
-    % Load settings
-    dcSettings = dataCzarSettings();
- 
     % Load the index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    dmIndex = loadDmIndex();
     
     % Returns the list of files
     list = returnFileList(input);
@@ -38,4 +35,4 @@ function detailFile(input)
     end
     
     % Re-save the index to disk    
-    save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+    loadDmIndex(dmIndex);

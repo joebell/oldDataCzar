@@ -7,11 +7,8 @@
 % JSB 12/2010
 function listOfNumbers = findExperiment(experimentName)
 
-    % Load settings
-    dcSettings = dataCzarSettings();
-    
-    % Load index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    % Load the index
+    dmIndex = loadDmIndex();
     
     % Find the files that need to be backed up
     listOfNumbers = [];

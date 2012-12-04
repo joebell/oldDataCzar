@@ -18,11 +18,8 @@ function list = returnFileList(varargin)
             list = findExperiment(varargin{1});
         end
     else        
-        % Load settings
-        dcSettings = dataCzarSettings();
-
         % Load the index
-        load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+        dmIndex = loadDmIndex();
         
         % Protect against empties
         if ~isfield(dmIndex,'files')

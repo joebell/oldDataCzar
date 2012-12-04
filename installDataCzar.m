@@ -19,18 +19,18 @@ function installDataCzar()
 
     
 %% Example directories for a PC - edit these!
-%    dcSettings.workingDir  = 'C:\Documents and Settings\Joe Bell\Desktop\';
-%    dcSettings.dataCzarDir = 'C:\Documents and Settings\Joe Bell\Desktop\dataCzar\';
-%    dcSettings.dataDir     = 'C:\Documents and Settings\Joe Bell\Desktop\Data\dataCzar\';
-%    dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
+   dcSettings.workingDir  = 'C:\Users\Wilson Lab\Desktop\Code\';
+   dcSettings.dataCzarDir = 'C:\Users\Wilson Lab\Desktop\Code\dataCzar\';
+   dcSettings.dataDir     = 'C:\Users\Wilson Lab\Desktop\Data\dataCzar\';
+   dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
     
 
 
-%% Example directories for a Mac - edit these!
-    dcSettings.workingDir  = '~/Desktop/Code/';
-    dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
-    dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
-    dcSettings.smbDir      = '/Volumes/neurobio/Wilson Lab/Joe Bell/Data/';
+% %% Example directories for a Mac - edit these!
+%     dcSettings.workingDir  = '~/Desktop/Code/';
+%     dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
+%     dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
+%     dcSettings.smbDir      = '/Volumes/neurobio/Wilson Lab/Joe Bell/Data/';
 
     
 

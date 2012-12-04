@@ -11,10 +11,9 @@ function loadData(input)
 
     % Load settings
     dcSettings = dataCzarSettings();
- 
     % Load the index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
-    
+    dmIndex = loadDmIndex();
+
     % Returns the list of files
     list = returnFileList(input);
     

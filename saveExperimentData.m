@@ -26,8 +26,8 @@ function saveExperimentData(experimentName,fileName, varargin)
         mkdir(directory);
     end
     
-    %% Load the index file    
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    %% Load the index
+    dmIndex = loadDmIndex();
     
     %% Store the name of the file and other params in the master list
     
@@ -96,6 +96,7 @@ function saveExperimentData(experimentName,fileName, varargin)
             ' and queued to be backed-up.']);
         % Store it back in dmIndex
         dmIndex.files = fileList;
-        save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+        % Re-save the index to disk    
+        loadDmIndex(dmIndex);
     end
 

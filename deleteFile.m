@@ -10,11 +10,8 @@
 % JSB 3/2011
 function deleteFile(inputf)
 
-    % Load settings
-    dcSettings = dataCzarSettings();
- 
     % Load the index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    dmIndex = loadDmIndex();
     
     % Returns the list of files
     list = returnFileList(inputf);
@@ -34,4 +31,4 @@ function deleteFile(inputf)
     end
     
     % Re-save the index to disk    
-    save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+    loadDmIndex(dmIndex);

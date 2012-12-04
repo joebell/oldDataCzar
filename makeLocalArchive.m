@@ -15,8 +15,8 @@ function makeLocalArchive(varargin)
     % Load settings
     dcSettings = dataCzarSettings();
     
-    % Load index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    % Load the index
+    dmIndex = loadDmIndex();
     
     % Returns the list of files
     if nargin > 0
@@ -52,7 +52,7 @@ function makeLocalArchive(varargin)
     end
 
     % Save the updated index reflecting the local backup
-    save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+    loadDmIndex(dmIndex);
     
     % Add the index file itself!
     filesToBackup{end+1} = [dcSettings.dataCzarDir, '.dmIndex.mat'];

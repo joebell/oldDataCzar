@@ -14,8 +14,8 @@ function makeRemoteBackup(varargin)
     % Load settings
     dcSettings = dataCzarSettings();
     
-    % Load index
-    load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+    % Load the index
+    dmIndex = loadDmIndex();
     
     % Returns the list of files
     if nargin > 0
@@ -62,8 +62,8 @@ function makeRemoteBackup(varargin)
                 dmIndex.files(fileNum).needsRemoteBackup = false;
                 dmIndex.files(fileNum).remoteBackup = backupFileName;
             end
-            % Save the updated index reflecting the local backup
-            save([dcSettings.dataCzarDir, '.dmIndex.mat'], 'dmIndex');
+            % Save the updated index reflecting the local backup  
+            loadDmIndex(dmIndex);
         catch exception
             disp('Backup to server failed.  Are you sure you''re connected?');
         end
