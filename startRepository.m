@@ -51,10 +51,10 @@ function startRepository()
 %% Settings - Modify these please!
  
 
-    existingRepository = true;   % Set this to true if you're cloning a
+    existingRepository = true;  % Set this to true if you're cloning a
                                  % repository that already exists   
                                  
-    yourRepository = 'arduinoMATLAB';    % Your repository
+    yourRepository = 'tetheredFlight';    % Your repository
    
 
     
