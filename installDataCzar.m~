@@ -17,15 +17,12 @@ function installDataCzar()
     dcSettings.repoOwner = 'joebell';   % A GitHub username
     dcSettings.smbBackup =  true;       % Backup to server?
 
-
-if ispc()    
+    
 %% Example directories for a PC - edit these!
    dcSettings.workingDir  = 'C:\Users\Wilson Lab\Desktop\Code\';
    dcSettings.dataCzarDir = 'C:\Users\Wilson Lab\Desktop\Code\dataCzar\';
    dcSettings.dataDir     = 'C:\Users\Wilson Lab\Desktop\Data\dataCzar\';
    dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
-elseif isunix()
-elseif ismac()
     
 
 
