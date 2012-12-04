@@ -15,7 +15,7 @@ function latestDmIndex = loadDmIndex(varargin)
         end
     elseif (nargin == 1)        
         dmIndex = varargin{1};
-		% disp(['Writing: ',dcSettings.dataCzarDir,'.dmIndex.mat']);
+		disp(['Writing: ',dcSettings.dataCzarDir,'.dmIndex.mat']);
         save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
     end
     

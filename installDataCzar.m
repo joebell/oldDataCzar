@@ -25,15 +25,18 @@ if ispc()
    dcSettings.dataDir     = 'C:\Users\Wilson Lab\Desktop\Data\dataCzar\';
    dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
 elseif isunix()
+%% Example directories for Unix - edit these!
+   dcSettings.workingDir  = '~/Desktop/Code/';
+   dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
+   dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
+   dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
 elseif ismac()
-    
-
-
-% %% Example directories for a Mac - edit these!
-%     dcSettings.workingDir  = '~/Desktop/Code/';
-%     dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
-%     dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
-%     dcSettings.smbDir      = '/Volumes/neurobio/Wilson Lab/Joe Bell/Data/';
+%% Example directories for a Mac - edit these!
+     dcSettings.workingDir  = '~/Desktop/Code/';
+     dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
+     dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
+     dcSettings.smbDir      = '/Volumes/neurobio/Wilson Lab/Joe Bell/Data/';
+end
 
     
 
@@ -52,11 +55,13 @@ elseif ismac()
     disp(['dataCzar installed to: ',dcSettings.dataCzarDir]);
     
     % Create index file if there isn't one already
-    if ~exist('.dmIndex.mat')
+    if ~exist([dcSettings.dataCzarDir,'.dmIndex.mat'])
         dmIndex = [];
         save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
         disp('Created a new data index file.');
-    end
+    else
+		disp('Using a previously created .dmIndex file');
+	end
 
     
        
