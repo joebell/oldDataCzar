@@ -14,7 +14,7 @@ function listOfNumbers = findExperiment(experimentName)
     listOfNumbers = [];
     for fileNum=1:size(dmIndex.files,2)
         file = dmIndex.files(fileNum);
-        if ~file.deleted && (size(strfind(file.experiment,experimentName),2) > 0) 
+        if ~file.deleted && strfind(file.experiment,experimentName) 
             listOfNumbers(end+1) = fileNum;
         end
     end
