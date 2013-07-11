@@ -28,7 +28,7 @@ elseif isunix()
 %% Example directories for Unix - edit these!
    dcSettings.workingDir  = '~/Desktop/Code/';
    dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
-   dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
+   dcSettings.dataDir     = '/data/dataCzar/';
    dcSettings.smbDir = '/media/neurobio/Wilson Lab/Joe Bell/Data/';
 elseif ismac()
 %% Example directories for a Mac - edit these!

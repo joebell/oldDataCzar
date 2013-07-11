@@ -29,7 +29,7 @@ elseif isunix()
    dcSettings.workingDir  = '~/Desktop/Code/';
    dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
    dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
-   dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
+   dcSettings.smbDir = '/media/neurobio/Wilson Lab/Joe Bell/Data/';
 elseif ismac()
 %% Example directories for a Mac - edit these!
      dcSettings.workingDir  = '~/Desktop/Code/';
