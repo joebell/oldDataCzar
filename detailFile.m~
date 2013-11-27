@@ -24,6 +24,7 @@ function detailFile(input)
         disp(['         Name: ',file.name]);
         disp(['   Experiment: ',file.experiment]);
         disp(['     Acquired: ',datestr(file.time)]);
+        disp([' Local Backup: ',file.localBackup]);
         disp(['Remote Backup: ',file.remoteBackup]);
         disp(['      Deleted: ',num2str(file.deleted)]);
         disp(' ');

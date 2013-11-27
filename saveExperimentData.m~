@@ -36,8 +36,6 @@ function saveExperimentData(experimentName,fileName, varargin)
     % Add the rest of the file info
     file.name = fileName;
     file.time = datevec(now);
-    file.needsLocalBackup = true;
-    file.localBackup = '';
     file.needsRemoteBackup = true;
     file.remoteBackup = '';
     file.deleted = false;

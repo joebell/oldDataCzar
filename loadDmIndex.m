@@ -4,12 +4,13 @@ function latestDmIndex = loadDmIndex(varargin)
 
     persistent dcSettings;
     persistent dmIndex;
+
+   dcSettings = dataCzarSettings(); 
     
     % If we're loading the dmIndex
     if (nargin == 0)
         % Retains the dmIndex in memory if it's already been loaded
-        if (size(dmIndex,1) == 0)          
-            dcSettings = dataCzarSettings();        
+        if (size(dmIndex,1) == 0)                 
             % S = load([dcSettings.dataCzarDir,'.dmIndex.mat']);
 			S = load([dcSettings.dataDir,'.dmIndex.mat']);
             dmIndex = S.dmIndex;

@@ -9,8 +9,7 @@
 %       listData('ExperimentName');  % Just data from one experiment
 %
 %  It will first list all in-range files, then will list files that are
-%  currently not backed-up either locally or remotely.  (Locally backed-up
-%  files are listed with an "L", remotely backed-up files have an "R")
+%  currently not backed-up remotely.  (Remotely backed-up files have an "R")
 %
 % JSB 3/2011 
 function listData(varargin)
@@ -29,19 +28,14 @@ function listData(varargin)
     disp('-- dataCzar File Index --');
     for fileNum=1:size(list,2)
         file = dmIndex.files(list(fileNum));
-        if (file.needsLocalBackup)
-            lb = ' ';
-        else
-            lb = 'L';
-        end
         if (file.needsRemoteBackup)
-            rb = ' ';
+            rb = '_';
         else
             rb = 'R';
         end
         % If there's no list or the entry is in the list, list it
         if ~file.deleted
-            disp(['#',num2str(list(fileNum)),' ',lb,' ',rb,' ',...
+            disp(['#',num2str(list(fileNum)),' ',rb,' ',...
                 datestr(file.time),'  ',file.name,'  ',file.experiment]);
         end
     end
@@ -49,18 +43,13 @@ function listData(varargin)
     for fileNum=list
         file = dmIndex.files(fileNum);
         if ~file.deleted
-            if (file.needsLocalBackup)
-                lb = ' ';
-            else
-                lb = 'L';
-            end
             if (file.needsRemoteBackup)
-                rb = ' ';
+                rb = '_';
             else
                 rb = 'R';
             end
-            if (file.needsLocalBackup || file.needsRemoteBackup)
-                disp(['#',num2str(fileNum),' ',lb,' ',rb,' ',...
+            if (file.needsRemoteBackup)
+                disp(['#',num2str(fileNum),' ',rb,' ',...
                     datestr(file.time),'  ',file.name,'  ',file.experiment]);
             end
         end

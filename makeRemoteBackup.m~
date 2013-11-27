@@ -1,25 +1,22 @@
-%% makeBackup.m
+%% makeRemoteBackup.m
 %
-%  Backs up any file that hasn't been previously backed up to a remote
-%  directory via rsync. This also captures .dmIndex.mat 
+%  Backs up any in-range file that hasn't been previously backed up to a remote
+%  directory via rsync.  
 %
 %  It works only on the whole dataDir.
 %
 % JSB 11/2013 
-function makeBackup()
+function makeRemoteBackup(varargin)
 
     % Load settings
     dcSettings = dataCzarSettings();
 
 	list = returnFileList();
-	dmIndex = loadDmIndex();
 
     % Copy it to the server
     if (dcSettings.remoteRsyncBackup)
         try
-			
 			cmd = ['rsync ',dcSettings.remoteRsyncOptions,' ',dcSettings.dataDir,' ',dcSettings.remoteRsyncHost];
-		    disp(['Backuping up using: ',cmd]);
 			[status,result] = unix(cmd,'-echo');
             for fileNum=list
                 dmIndex.files(fileNum).needsRemoteBackup = false;
