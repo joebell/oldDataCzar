@@ -10,13 +10,15 @@ function latestDmIndex = loadDmIndex(varargin)
         % Retains the dmIndex in memory if it's already been loaded
         if (size(dmIndex,1) == 0)          
             dcSettings = dataCzarSettings();        
-            S = load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+            % S = load([dcSettings.dataCzarDir,'.dmIndex.mat']);
+			S = load([dcSettings.dataDir,'.dmIndex.mat']);
             dmIndex = S.dmIndex;
         end
     elseif (nargin == 1)        
         dmIndex = varargin{1};
 		% disp(['Writing: ',dcSettings.dataCzarDir,'.dmIndex.mat']);
-        save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+        % save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+		save([dcSettings.dataDir,'.dmIndex.mat'],'dmIndex');
     end
     
     latestDmIndex = dmIndex;
