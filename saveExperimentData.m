@@ -41,6 +41,10 @@ function saveExperimentData(experimentName,fileName, varargin)
     file.deleted = false;
     file.code = getCodeVersion();
 
+    if ~strcmp(experimentName,dmIndex.experiments{end})
+	dmIndex.experiments{end+1} = experimentName;
+    end
+
 
     % If this is new, create a list of files
     overWrite = true;
