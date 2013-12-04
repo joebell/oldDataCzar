@@ -26,7 +26,7 @@ function listRecentExperiments(nToUse,varargin)
 			for levelN = 2:length(varName)
 				dataObj = dataObj.(varName{levelN});
 			end
-			varString = ['  -  ',dataObj];
+			varString = [' - ',num2str(dataObj)];
 		else
 			varString = '';
 		end
