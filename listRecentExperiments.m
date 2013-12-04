@@ -1,4 +1,12 @@
-function listRecentExperiments(nToUse)
+function listRecentExperiments(nToUse,varargin)
+
+	if nargin > 1
+		fieldName = varargin{1};
+		useField = true;
+	else
+		fieldName = {};
+		useField = false;
+	end
 
 	dmIndex = loadDmIndex();
         nExps = length(dmIndex.experiments);	

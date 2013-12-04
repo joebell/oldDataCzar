@@ -7,7 +7,13 @@
 %       loadData('ExperimentName');
 %
 % JSB 3/2011 
-function loadData(input)
+function loadData(input, varargin)
+
+	if nargin > 1
+		displayOn = varargin{1};
+	else
+		displayOn = true;
+	end
 
     % Load settings
     dcSettings = dataCzarSettings();
@@ -21,8 +27,10 @@ function loadData(input)
     for fileNum=list
         file = dmIndex.files(fileNum); 
         fullPath = [dcSettings.dataDir, file.name];
-        if ~file.deleted            
-            disp(['Loading: ',fullPath]);
+        if (~file.deleted)
+			if displayOn
+				disp(['Loading: ',fullPath]);
+			end
         else
             disp('Warning!  That file was deleted from your index.');
             disp('I''ll try to load it anyway...');

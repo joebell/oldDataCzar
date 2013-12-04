@@ -11,11 +11,16 @@
 function list = returnFileList(varargin)
 
     % Generate the list of files to look through
+	if nargin > 1
+		displayOn = varargin{2};
+	else
+		displayOn = true;
+	end
     if nargin > 0
         if isnumeric(varargin{1})
             list = varargin{1};
         else
-            list = findExperiment(varargin{1});
+            list = findExperiment(varargin{1},displayOn);
         end
     else        
         % Load the index

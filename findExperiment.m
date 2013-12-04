@@ -5,8 +5,14 @@
 %  Ex: findExperiment('Or22a in Or83b2');
 %
 % JSB 12/2010
-function listOfNumbers = findExperiment(experimentName)
+function listOfNumbers = findExperiment(experimentName,varargin)
 
+	if nargin > 1
+		displayOn = varargin{1};
+	else
+		displayOn = true;
+	end
+	
     % Load the index
     dmIndex = loadDmIndex();
     
@@ -19,6 +25,8 @@ function listOfNumbers = findExperiment(experimentName)
         end
     end
     % Display files found 
-    disp(['Found ', num2str(size(listOfNumbers,2)),' files for: ',...
-	    experimentName]);
+	if displayOn
+		disp(['Found ', num2str(size(listOfNumbers,2)),' files for: ',...
+			experimentName]);
+	end
     
