@@ -1,4 +1,4 @@
-function listRecentExperiments(nToUse,varargin)
+function listRecentExperiments(input,varargin)
 
 	if nargin > 1
 		varName = varargin{1};
@@ -10,8 +10,13 @@ function listRecentExperiments(nToUse,varargin)
 
 	dmIndex = loadDmIndex();
         nExps = length(dmIndex.experiments);	
-		
-	nToDo = (nExps - nToUse + 1):nExps;
+
+    if length(input) == 1		
+		nToUse = input;
+		nToDo = (nExps - nToUse + 1):nExps;
+	else
+		nToDo = input;
+	end
 
 	disp('--- Recent Experiments ---');
 	for expNn=1:length(nToDo)
