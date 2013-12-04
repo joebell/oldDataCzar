@@ -1,11 +1,11 @@
 function listRecentExperiments(nToUse,varargin)
 
 	if nargin > 1
-		fieldName = varargin{1};
-		useField = true;
+		varName = varargin{1};
+		useVar = true;
 	else
-		fieldName = {};
-		useField = false;
+		varName = {};
+		useVar = false;
 	end
 
 	dmIndex = loadDmIndex();
@@ -14,10 +14,25 @@ function listRecentExperiments(nToUse,varargin)
 	nToDo = (nExps - nToUse + 1):nExps;
 
 	disp('--- Recent Experiments ---');
-	for expN=1:length(nToDo)
-		
-	disp(['[E',num2str(nToDo(expN)),'] ',...
-		dmIndex.experiments{nToDo(expN)}]);
+	for expNn=1:length(nToDo)
+
+		expN = nToDo(expNn);
+
+		if useVar
+			displayOn = false;
+			fileList = fileListFromExpNum(expN,displayOn);
+			loadData(fileList(1),displayOn);
+			dataObj = eval([varName{1},';']);
+			for levelN = 2:length(varName)
+				dataObj = dataObj.(varName{levelN});
+			end
+			varString = ['  -  ',dataObj];
+		else
+			varString = '';
+		end
+
+		disp(['[E',num2str(expN),'] ',...
+			dmIndex.experiments{expN},varString]);
 	end
 	disp('--------------------------');
 	
