@@ -15,30 +15,17 @@ function installDataCzar()
     dcSettings.yourName =  'Joe Bell';
     dcSettings.yourEmail = 'joe.bell@gmail.com';
     dcSettings.repoOwner = 'joebell';   % A GitHub username
-    dcSettings.smbBackup =  true;       % Backup to server?
 
-
-if ispc()    
-%% Example directories for a PC - edit these!
-   dcSettings.workingDir  = 'C:\Users\Wilson Lab\Desktop\Code\';
-   dcSettings.dataCzarDir = 'C:\Users\Wilson Lab\Desktop\Code\dataCzar\';
-   dcSettings.dataDir     = 'C:\Users\Wilson Lab\Desktop\Data\dataCzar\';
-   dcSettings.smbDir = '\\Files.med.harvard.edu\neurobio\Wilson Lab\Joe Bell\Data\';
-elseif isunix()
 %% Example directories for Unix - edit these!
    dcSettings.workingDir  = '~/Desktop/Code/';
    dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
    dcSettings.dataDir     = '/data/dataCzar/';
-   dcSettings.smbDir = '/media/neurobio/Wilson Lab/Joe Bell/Data/';
-elseif ismac()
-%% Example directories for a Mac - edit these!
-     dcSettings.workingDir  = '~/Desktop/Code/';
-     dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
-     dcSettings.dataDir     = '~/Desktop/Data/dataCzar/';
-     dcSettings.smbDir      = '/Volumes/neurobio/Wilson Lab/Joe Bell/Data/';
-end
-
-    
+   dcSettings.remoteRsyncOptions = '-rite ssh';
+   dcSettings.remoteRsyncHost = 'transfer:/groups/wilson/RTFW/dataCzar/';
+   dcSettings.remoteRsyncBackup = true;
+   dcSettings.yourRepository = 'laserTrack2';
+   dcSettings.repoDir        = '~/Desktop/Code/laserTrack2/';
+   
 
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
@@ -49,10 +36,10 @@ end
     disp('Saved: .dataCzarSettings.mat');
     
     % Update the MATLAB path
-    addpath(genpath([dcSettings.dataCzarDir]));
-    savepath;   
-    disp('Updated MATLAB path for dataCzar.');
-    disp(['dataCzar installed to: ',dcSettings.dataCzarDir]);
+    % addpath(genpath([dcSettings.dataCzarDir]));
+    % savepath;   
+    % disp('Updated MATLAB path for dataCzar.');
+    % disp(['dataCzar installed to: ',dcSettings.dataCzarDir]);
     
     % Create index file if there isn't one already
     if ~exist([dcSettings.dataCzarDir,'.dmIndex.mat'])

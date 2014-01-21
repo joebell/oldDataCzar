@@ -18,7 +18,8 @@ function makeBackup()
     if (dcSettings.remoteRsyncBackup)
         try
 			
-			cmd = ['rsync ',dcSettings.remoteRsyncOptions,' ',dcSettings.dataDir,' ',dcSettings.remoteRsyncHost];
+			cmd = ['rsync ',dcSettings.remoteRsyncOptions,' ',...
+						dcSettings.dataDir,' ',dcSettings.remoteRsyncHost];
 		    disp(['Backuping up using: ',cmd]);
 			[status,result] = unix(cmd,'-echo');
             for fileNum=list

@@ -26,7 +26,7 @@ function updateToServer(message)
     system(['git add --all ']);
     disp('Committing code to local repository...');
     system(['git commit -m "',message,'"']);
-    disp('Pushing changes to server...');
+    % disp('Pushing changes to server...');
     %pause(1);
     %system(['git push origin ',branch.current]);
     %system(['git push --tags ']);
