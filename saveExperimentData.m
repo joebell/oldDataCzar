@@ -42,8 +42,12 @@ function saveExperimentData(experimentName,fileName, varargin)
     file.deleted = false;
     file.code = getCodeVersion();
 
+	if ~isfield(dmIndex,'experiments')
+		dmIndex.experiments = {''};
+	end
+
     if ~strcmp(experimentName,dmIndex.experiments{end})
-	dmIndex.experiments{end+1} = experimentName;
+		dmIndex.experiments{end+1} = experimentName;
     end
 
 

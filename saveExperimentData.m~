@@ -13,7 +13,6 @@
 %  JSB 3/2011
 function saveExperimentData(experimentName,fileName, varargin)
 
-	disp('Top of saveExpData');
 
     % Load settings
     dcSettings = dataCzarSettings();
@@ -41,11 +40,14 @@ function saveExperimentData(experimentName,fileName, varargin)
     file.needsRemoteBackup = true;
     file.remoteBackup = '';
     file.deleted = false;
-disp('Before get code version');
     file.code = getCodeVersion();
-disp('After get code version');
+
+	if ~isfield(dmIndex,'experiments')
+		dmIndex.experiments = {''};
+	end
+
     if ~strcmp(experimentName,dmIndex.experiments{end})
-	dmIndex.experiments{end+1} = experimentName;
+		dmIndex.experiments{end+1} = experimentName;
     end
 
 

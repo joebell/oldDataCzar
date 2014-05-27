@@ -21,8 +21,10 @@ function installDataCzar()
    dcSettings.dataCzarDir = '~/Desktop/Code/dataCzar/';
    dcSettings.dataDir     = '/data/dataCzar/';
    dcSettings.remoteRsyncOptions = '-rite ssh';
-   dcSettings.remoteRsyncHost = 'transfer:/groups/wilson/RTFW/dataCzar/';
+   dcSettings.remoteRsyncHost = 'transfer:/groups/wilson/RTPW/dataCzar/';
    dcSettings.remoteRsyncBackup = true;
+   dcSettings.yourRepository = 'laserTrack2';
+   dcSettings.repoDir        = '~/Desktop/Code/laserTrack2/';
    
 
     
@@ -40,9 +42,9 @@ function installDataCzar()
     % disp(['dataCzar installed to: ',dcSettings.dataCzarDir]);
     
     % Create index file if there isn't one already
-    if ~exist([dcSettings.dataCzarDir,'.dmIndex.mat'])
+    if ~exist([dcSettings.dataDir,'.dmIndex.mat'])
         dmIndex = [];
-        save([dcSettings.dataCzarDir,'.dmIndex.mat'],'dmIndex');
+        save([dcSettings.dataDir,'.dmIndex.mat'],'dmIndex');
         disp('Created a new data index file.');
     else
 		disp('Using a previously created .dmIndex file');
